@@ -7,39 +7,39 @@
     --titulos-alertas: #FFB701;
     --texto-principal: #2b2b2b;
     --texto-secundario: #4a4a4a;
+    --texto-branco: #e0e0e0;
     --borda-input: #b4a892;
     --fundo-input: #e2d9c8;
     --box-faturamento: #212121;
-    --texto-branco: #f0f0f0;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--fundo);
-    color: var(--texto-principal); /* Cor padrão do texto dentro do container */
+    color: var(--texto-principal);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
-    padding: 20px;
+    padding: 40px 20px;
     box-sizing: border-box;
 }
 
-.container {
+/* NOVO WRAPPER PARA CENTRALIZAR TUDO */
+.main-wrapper {
     width: 100%;
     max-width: 900px;
-    background-color: var(--box-principal);
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* ESTILOS PARA LOGO E TÍTULOS (AGORA FORA DO BOX) */
 .logo {
     display: block;
-    max-width: 200px;
+    max-width: 180px; /* Ajuste o tamanho se necessário */
     height: auto;
-    margin: 0 auto 30px;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -47,17 +47,26 @@ h1 {
     color: var(--titulos-alertas);
     font-size: 2rem;
     font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 8px;
-    /* Adiciona uma leve sombra para destacar no fundo bege */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin: 0;
 }
 
 .subtitle {
     text-align: center;
-    margin-bottom: 40px;
+    margin-top: 8px;
+    margin-bottom: 30px; /* Espaçamento entre o subtítulo e o box */
     font-size: 1rem;
-    color: var(--texto-secundario);
+    color: var(--texto-branco); /* Cor legível no fundo preto */
+    opacity: 0.8;
+}
+
+/* O container principal (box bege) */
+.container {
+    width: 100%;
+    background-color: var(--box-principal);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
 }
 
 .calculator {
@@ -153,7 +162,13 @@ h2 {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
     .calculator {
         grid-template-columns: 1fr;
+    }
+    .container {
+        padding: 25px;
     }
 }
