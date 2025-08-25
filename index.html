@@ -8,22 +8,18 @@
 </head>
 <body>
 
-    <!-- Wrapper para centralizar todo o conteúdo -->
     <div class="main-wrapper">
-    
-        <!-- Logo e Títulos fora do container principal -->
         <img src="Títulosprev-faturamento.png" alt="Logo da Empresa" class="logo">
         <h1>Calculadora de Funil de Vendas</h1>
         <p class="subtitle">Preencha os campos abaixo para simular o faturamento.</p>
 
-        <!-- O container agora só tem a calculadora -->
         <div class="container">
             <div class="calculator">
                 <div class="inputs">
                     <h2>Parâmetros</h2>
                     <div class="input-group">
                         <label for="publico-total">Público Total</label>
-                        <input type="number" id="publico-total" placeholder="Ex: 42300">
+                        <input type="number" id="publico-total" placeholder="Ex: 42200">
                     </div>
                     <div class="input-group">
                         <label for="perc-captacao">Porcentagem de Captação (%)</label>
@@ -70,7 +66,181 @@
         </div>
     </div>
 
-    <!-- O nome do arquivo aqui deve ser exatamente "script.js" -->
+    <!-- ESTA LINHA É CRUCIAL. O NOME DO ARQUIVO DEVE SER EXATO -->
     <script src="script.js"></script>
 </body>
-</html>
+</html>```
+
+**2. Arquivo `style.css`** (Nenhuma alteração, mas recoloque para garantir consistência)
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+    --fundo: #131313;
+    --box-principal: #D1C3A9;
+    --titulos-alertas: #FFB701;
+    --texto-principal: #2b2b2b;
+    --texto-secundario: #4a4a4a;
+    --texto-branco: #e0e0e0;
+    --borda-input: #b4a892;
+    --fundo-input: #e2d9c8;
+    --box-faturamento: #212121;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    display: block;
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--titulos-alertas);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitle {
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: var(--texto-branco);
+    opacity: 0.8;
+}
+
+.container {
+    width: 100%;
+    background-color: var(--box-principal);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--texto-principal);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--titulos-alertas);
+    display: inline-block;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--texto-principal);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--borda-input);
+    background-color: var(--fundo-input);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--texto-principal);
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--titulos-alertas);
+    box-shadow: 0 0 0 3px rgba(255, 183, 1, 0.3);
+}
+
+.results .funnel-stage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--fundo-input);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.results .funnel-stage strong {
+    color: var(--texto-principal);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.final-revenue {
+    margin-top: 25px;
+    padding: 25px;
+    background-color: var(--box-faturamento);
+    color: var(--texto-branco);
+    text-align: center;
+    border-radius: 8px;
+}
+
+.final-revenue h3 {
+    margin-top: 0;
+    font-weight: 400;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.final-revenue p {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: var(--titulos-alertas);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-style: italic;
+    color: var(--texto-secundario);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+    .calculator {
+        grid-template-columns: 1fr;
+    }
+    .container {
+        padding: 25px;
+    }
+}
