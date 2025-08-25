@@ -1,12 +1,12 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleciona todos os campos de entrada e de resultado
+    // Seleciona todos os campos de entrada (onde você digita os valores)
     const publicoTotalInput = document.getElementById('publico-total');
     const percCaptacaoInput = document.getElementById('perc-captacao');
     const percWhatsappInput = document.getElementById('perc-whatsapp');
     const percCompraInput = document.getElementById('perc-compra');
     const valorProdutoInput = document.getElementById('valor-produto');
 
+    // Seleciona todos os campos de resultado (onde os cálculos aparecem)
     const resultadoCaptacaoEl = document.getElementById('resultado-captacao');
     const resultadoWhatsappEl = document.getElementById('resultado-whatsapp');
     const resultadoCompraEl = document.getElementById('resultado-compra');
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função principal que realiza todos os cálculos
     function calcularFunil() {
-        // Pega os valores dos campos, convertendo para número. Se estiver vazio, usa 0.
+        // Pega os valores dos campos, convertendo para número. Se um campo estiver vazio, considera como 0.
         const publicoTotal = parseFloat(publicoTotalInput.value) || 0;
         const percCaptacao = parseFloat(percCaptacaoInput.value) || 0;
         const percWhatsapp = parseFloat(percWhatsappInput.value) || 0;
@@ -25,22 +25,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // 1. Calcula o público captado
         const publicoCaptado = publicoTotal * (percCaptacao / 100);
 
-        // 2. Calcula quantos avançaram para o WhatsApp
+        // 2. Calcula quantos avançaram para o WhatsApp (baseado no público que já foi captado)
         const avancaramWhatsapp = publicoCaptado * (percWhatsapp / 100);
 
-        // 3. Calcula quantos concluíram a compra
+        // 3. Calcula quantos concluíram a compra (baseado em quem avançou para o WhatsApp)
         const totalCompras = avancaramWhatsapp * (percCompra / 100);
 
-        // 4. Calcula o faturamento bruto
+        // 4. Calcula o faturamento bruto final
         const faturamento = totalCompras * valorProduto;
 
         // --- ATUALIZA OS RESULTADOS NA TELA ---
-        // Usamos Math.round() para não ter "meia pessoa"
+        // Arredonda os resultados para não ter "meia pessoa"
         resultadoCaptacaoEl.textContent = Math.round(publicoCaptado);
         resultadoWhatsappEl.textContent = Math.round(avancaramWhatsapp);
         resultadoCompraEl.textContent = Math.round(totalCompras);
 
-        // Formata o faturamento como moeda brasileira (R$)
+        // Formata o faturamento como moeda brasileira (R$) para uma exibição amigável
         faturamentoBrutoEl.textContent = faturamento.toLocaleString('pt-BR', {
             style: 'currency',
             currency: 'BRL'
@@ -56,11 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
         valorProdutoInput
     ];
 
-    // Adiciona um "ouvinte" a cada campo. Sempre que você digitar algo, a função 'calcularFunil' será chamada.
+    // Adiciona um "ouvinte de evento" a cada campo. 
+    // O evento 'input' é disparado toda vez que você digita ou altera algo no campo.
+    // Assim que o evento acontece, a função 'calcularFunil' é chamada AUTOMATICAMENTE.
     inputs.forEach(input => {
         input.addEventListener('input', calcularFunil);
     });
 
-    // Roda a função uma vez quando a página carrega, para o caso de haver valores iniciais
+    // Chama a função uma vez quando a página carrega, para zerar os campos de resultado
     calcularFunil();
 });
