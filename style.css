@@ -10,6 +10,8 @@
     --borda-input: #b4a892;
     --fundo-input: #e2d9c8;
     --box-faturamento: #212121;
+    /* Adicionada cor verde para o funil */
+    --verde-sucesso: #588157;
 }
 
 body {
@@ -26,7 +28,6 @@ body {
 
 .main-wrapper {
     width: 100%;
-    /* Aumenta a largura máxima para acomodar a nova coluna */
     max-width: 1200px;
     display: flex;
     flex-direction: column;
@@ -68,7 +69,6 @@ h1 {
 
 .calculator {
     display: grid;
-    /* Define o layout de 3 colunas */
     grid-template-columns: 1.2fr 1.2fr 1fr;
     gap: 40px;
 }
@@ -174,7 +174,7 @@ h2 {
     color: var(--titulos-alertas);
 }
 
-/* --- ESTILOS DO NOVO FUNIL VISUAL --- */
+/* --- AJUSTES NO FUNIL VISUAL --- */
 
 .funnel-visual {
     padding-left: 20px;
@@ -188,16 +188,18 @@ h2 {
 }
 
 .funnel-step {
-    /* Cria a forma de trapézio */
     clip-path: polygon(15% 0, 85% 0, 100% 100%, 0% 100%);
-    height: 70px;
-    margin-bottom: -15px; /* Empilha as etapas */
+    /* 1. AJUSTE DE ALTURA PARA MAIS ESPAÇO VISÍVEL */
+    height: 75px;
+    /* 2. AJUSTE DA SOBREPOSIÇÃO PARA CONTROLAR O ESPAÇAMENTO */
+    margin-bottom: -22px;
     color: var(--texto-branco);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    transition: background-color 0.3s ease;
 }
 
 .funnel-label {
@@ -211,7 +213,6 @@ h2 {
     font-weight: 700;
 }
 
-/* Tamanhos e cores individuais para cada etapa */
 #funnel-step-1 {
     width: 100%;
     background-color: #3c3c3c;
@@ -226,8 +227,9 @@ h2 {
 }
 #funnel-step-4 {
     width: 55%;
-    background-color: #7a7a7a;
-    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%); /* Ponta mais fina */
+    /* 3. COR ALTERADA PARA VERDE */
+    background-color: var(--verde-sucesso);
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
 }
 
 
@@ -238,15 +240,12 @@ h2 {
     color: var(--texto-secundario);
 }
 
-/* --- AJUSTES DE RESPONSIVIDADE --- */
-
 @media (max-width: 1100px) {
     .calculator {
-        /* Vira 2 colunas e o funil vai para baixo */
         grid-template-columns: 1fr 1fr;
     }
     .funnel-visual {
-        grid-column: 1 / 3; /* Ocupa as duas colunas */
+        grid-column: 1 / 3;
         padding-left: 0;
         border-left: none;
         margin-top: 40px;
@@ -257,10 +256,9 @@ h2 {
 
 @media (max-width: 768px) {
     .calculator {
-        /* Vira 1 coluna */
         grid-template-columns: 1fr;
     }
     .funnel-visual {
-        grid-column: auto; /* Reseta o grid-column */
+        grid-column: auto;
     }
 }
