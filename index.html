@@ -15,6 +15,7 @@
 
         <div class="container">
             <div class="calculator">
+                <!-- Coluna 1: Parâmetros -->
                 <div class="inputs">
                     <h2>Parâmetros</h2>
                     <div class="input-group">
@@ -27,22 +28,20 @@
                     </div>
                     <div class="input-group">
                         <label for="perc-whatsapp">Porcentagem para WhatsApp (%)</label>
-                        <input type="number" id="perc-whatsapp" value="5">
+                        <input type="number" id="perc-whatsapp" value="10">
                     </div>
                     <div class="input-group">
                         <label for="perc-compra">Porcentagem de Compra (%)</label>
-                        <input type="number" id="perc-compra" value="40">
+                        <input type="number" id="perc-compra" value="30">
                     </div>
                     <div class="input-group">
                         <label for="valor-produto">Valor Sugerido do Produto (R$)</label>
-                        <input type="number" id="valor-produto" value="1500">
+                        <input type="number" id="valor-produto" value="200">
                     </div>
-
-                    <!-- BOTÃO ADICIONADO AQUI -->
                     <button id="calculate-btn" class="calculate-button">Calcular Faturamento</button>
-
                 </div>
 
+                <!-- Coluna 2: Resultados -->
                 <div class="results">
                     <h2>Resultado Estimado</h2>
                     <div class="funnel-stage">
@@ -57,12 +56,35 @@
                         <span>Concluíram a Compra:</span>
                         <strong id="resultado-compra">0</strong>
                     </div>
-
                     <div class="final-revenue">
                         <h3>Faturamento Bruto Estimado:</h3>
                         <p id="faturamento-bruto">R$ 0,00</p>
                     </div>
                 </div>
+
+                <!-- NOVA Coluna 3: Funil Visual -->
+                <div class="funnel-visual">
+                    <h2>Visualização</h2>
+                    <div class="funnel-container">
+                        <div class="funnel-step" id="funnel-step-1">
+                            <span class="funnel-label">Público Total</span>
+                            <strong class="funnel-value" id="funnel-value-total">0</strong>
+                        </div>
+                        <div class="funnel-step" id="funnel-step-2">
+                             <span class="funnel-label">Público Captado</span>
+                            <strong class="funnel-value" id="funnel-value-captado">0</strong>
+                        </div>
+                        <div class="funnel-step" id="funnel-step-3">
+                             <span class="funnel-label">WhatsApp</span>
+                            <strong class="funnel-value" id="funnel-value-whatsapp">0</strong>
+                        </div>
+                        <div class="funnel-step" id="funnel-step-4">
+                             <span class="funnel-label">Compra</span>
+                            <strong class="funnel-value" id="funnel-value-compra">0</strong>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="footer">
                 <p>A taxa de conversão é diretamente ligada à capacidade da equipe comercial.</p>
