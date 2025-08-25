@@ -1,3 +1,6 @@
+// PROVA REAL: Se este alerta aparecer, o arquivo está sendo carregado corretamente.
+alert("O arquivo script.js foi carregado com sucesso!");
+
 document.addEventListener('DOMContentLoaded', () => {
     // Seleciona todos os campos de entrada (onde você digita os valores)
     const publicoTotalInput = document.getElementById('publico-total');
