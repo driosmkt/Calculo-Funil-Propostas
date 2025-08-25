@@ -1,9 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
+/* --- PALETA DE CORES PERSONALIZADA --- */
+:root {
+    --fundo: #131313;
+    --box-principal: #D1C3A9;
+    --titulos-alertas: #FFB701;
+    --texto-principal: #2b2b2b;
+    --texto-secundario: #4a4a4a;
+    --borda-input: #b4a892;
+    --fundo-input: #e2d9c8;
+    --box-faturamento: #212121;
+    --texto-branco: #f0f0f0;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: var(--fundo);
+    color: var(--texto-principal); /* Cor padrão do texto dentro do container */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,47 +28,52 @@ body {
 
 .container {
     width: 100%;
-    max-width: 800px;
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px meditative0px rgba(0,0,0,0.1);
+    max-width: 900px;
+    background-color: var(--box-principal);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* ESTILO DA LOGO */
 .logo {
     display: block;
-    max-width: 250px; /* Ajuste o tamanho conforme necessário */
+    max-width: 200px;
     height: auto;
-    margin: 0 auto 25px; /* Centraliza a logo */
+    margin: 0 auto 30px;
 }
 
 h1 {
     text-align: center;
-    color: #084c61; /* Cor alterada */
+    color: var(--titulos-alertas);
+    font-size: 2rem;
+    font-weight: 700;
     margin-top: 0;
+    margin-bottom: 8px;
+    /* Adiciona uma leve sombra para destacar no fundo bege */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .subtitle {
     text-align: center;
-    margin-bottom: 30px;
-    color: #555;
+    margin-bottom: 40px;
+    font-size: 1rem;
+    color: var(--texto-secundario);
 }
 
 .calculator {
-    display: flex;
-    gap: 30px;
-}
-
-.inputs, .results {
-    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 
 h2 {
-    border-bottom: 2px solid #48c9b0; /* Cor alterada */
+    font-size: 1.5rem;
+    color: var(--texto-principal);
     padding-bottom: 10px;
-    margin-bottom: 20px;
-    color: #084c61; /* Cor alterada */
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--titulos-alertas);
+    display: inline-block;
 }
 
 .input-group {
@@ -66,16 +84,25 @@ h2 {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: #34495e;
+    color: var(--texto-principal);
 }
 
 .input-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    padding: 12px;
+    border: 1px solid var(--borda-input);
+    background-color: var(--fundo-input);
+    border-radius: 8px;
     font-size: 1rem;
+    color: var(--texto-principal);
     box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--titulos-alertas);
+    box-shadow: 0 0 0 3px rgba(255, 183, 1, 0.3);
 }
 
 .results .funnel-stage {
@@ -83,22 +110,23 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: #ecf0f1;
-    border-radius: 6px;
+    background-color: var(--fundo-input);
+    border-radius: 8px;
     margin-bottom: 15px;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .results .funnel-stage strong {
-    color: #16a085; /* Cor alterada */
+    color: var(--texto-principal);
     font-size: 1.2rem;
+    font-weight: 700;
 }
 
 .final-revenue {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #2c3e50;
-    color: #fff;
+    margin-top: 25px;
+    padding: 25px;
+    background-color: var(--box-faturamento);
+    color: var(--texto-branco);
     text-align: center;
     border-radius: 8px;
 }
@@ -107,24 +135,25 @@ h2 {
     margin-top: 0;
     font-weight: 400;
     opacity: 0.9;
+    font-size: 1.1rem;
 }
 
 .final-revenue p {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
     margin-bottom: 0;
-    color: #2ecc71; /* Cor mantida (verde vibrante) */
+    color: var(--titulos-alertas);
 }
 
 .footer {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
     font-style: italic;
-    color: #777;
+    color: var(--texto-secundario);
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
     .calculator {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 }
