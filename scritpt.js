@@ -1,6 +1,3 @@
-// PROVA REAL: Se este alerta aparecer, o arquivo está sendo carregado corretamente.
-alert("O arquivo script.js foi carregado com sucesso!");
-
 document.addEventListener('DOMContentLoaded', () => {
     // Seleciona todos os campos de entrada (onde você digita os valores)
     const publicoTotalInput = document.getElementById('publico-total');
@@ -8,12 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const percWhatsappInput = document.getElementById('perc-whatsapp');
     const percCompraInput = document.getElementById('perc-compra');
     const valorProdutoInput = document.getElementById('valor-produto');
-
-    // Seleciona todos os campos de resultado (onde os cálculos aparecem)
+    
+    // Seleciona os campos de resultado (onde os cálculos aparecem)
     const resultadoCaptacaoEl = document.getElementById('resultado-captacao');
     const resultadoWhatsappEl = document.getElementById('resultado-whatsapp');
     const resultadoCompraEl = document.getElementById('resultado-compra');
     const faturamentoBrutoEl = document.getElementById('faturamento-bruto');
+
+    // Seleciona o novo botão de calcular
+    const calculateBtn = document.getElementById('calculate-btn');
 
     // Função principal que realiza todos os cálculos
     function calcularFunil() {
@@ -38,20 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const inputs = [
-        publicoTotalInput,
-        percCaptacaoInput,
-        percWhatsappInput,
-        percCompraInput,
-        valorProdutoInput
-    ];
-
-    // Adiciona um "ouvinte" a cada campo. 
-    // Sempre que você digitar algo, a função 'calcularFunil' será chamada.
-    inputs.forEach(input => {
-        input.addEventListener('input', calcularFunil);
-    });
-
-    // Roda a função uma vez quando a página carrega para o caso de haver valores iniciais
-    calcularFunil();
+    // --- NOVA LÓGICA ---
+    // A função 'calcularFunil' agora só é chamada quando o botão é CLICADO.
+    calculateBtn.addEventListener('click', calcularFunil);
 });
