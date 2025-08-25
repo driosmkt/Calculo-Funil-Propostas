@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* --- PALETA DE CORES PERSONALIZADA --- */
 :root {
     --fundo: #131313;
     --box-principal: #D1C3A9;
@@ -25,7 +24,6 @@ body {
     box-sizing: border-box;
 }
 
-/* NOVO WRAPPER PARA CENTRALIZAR TUDO */
 .main-wrapper {
     width: 100%;
     max-width: 900px;
@@ -34,10 +32,9 @@ body {
     align-items: center;
 }
 
-/* ESTILOS PARA LOGO E TÍTULOS (AGORA FORA DO BOX) */
 .logo {
     display: block;
-    max-width: 180px; /* Ajuste o tamanho se necessário */
+    max-width: 180px;
     height: auto;
     margin-bottom: 20px;
 }
@@ -53,13 +50,12 @@ h1 {
 .subtitle {
     text-align: center;
     margin-top: 8px;
-    margin-bottom: 30px; /* Espaçamento entre o subtítulo e o box */
+    margin-bottom: 30px;
     font-size: 1rem;
-    color: var(--texto-branco); /* Cor legível no fundo preto */
+    color: var(--texto-branco);
     opacity: 0.8;
 }
 
-/* O container principal (box bege) */
 .container {
     width: 100%;
     background-color: var(--box-principal);
@@ -112,6 +108,29 @@ h2 {
     outline: none;
     border-color: var(--titulos-alertas);
     box-shadow: 0 0 0 3px rgba(255, 183, 1, 0.3);
+}
+
+/* --- ESTILO DO NOVO BOTÃO --- */
+.calculate-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--fundo);
+    background-color: var(--titulos-alertas);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.calculate-button:hover {
+    background-color: #ffc940; /* Um pouco mais claro no hover */
+}
+
+.calculate-button:active {
+    transform: scale(0.98); /* Efeito de clique */
 }
 
 .results .funnel-stage {
